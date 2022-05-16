@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 def plotseird(t, S, E, I, R, D=None, L=None, R0=None, Alpha=None, CFR=None):
     f, ax = plt.subplots(1, 1, figsize=(15, 9))
-    plt.title('Эпидемия')
+    plt.title('Эпидемия (SEIR модель)')
     ax.plot(t, S, 'b', linewidth=2, label='Восприимчивые к вирусу')
     ax.plot(t, E, 'y', linewidth=1, label='Инкубационный период')
     ax.plot(t, I, 'r', linewidth=3, label='Заражённые')

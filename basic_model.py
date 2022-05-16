@@ -1,9 +1,6 @@
 import time
 import random
 import matplotlib.pyplot as plt
-import seaborn
-
-seaborn.set()
 
 x_points = []
 y_points = []
@@ -39,7 +36,7 @@ while infected <= population:
 plt.title("Эпидемия")
 plt.xlabel("Время (Дни)")
 plt.ylabel("Инфицированные")
-plt.grid()
+plt.subplots(1, 1, figsize=(15, 9))
 plt.plot(y_points, x_points)
 plt.show()
 
