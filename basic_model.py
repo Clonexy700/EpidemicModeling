@@ -7,7 +7,7 @@ y_points = []
 recovered = 0
 vulnerable = 5000
 population = recovered + vulnerable
-INFECTIVITY_INDEX = 24
+INFECTIVITY_INDEX = 1
 infected = 1
 day = 0
 
@@ -32,11 +32,10 @@ while infected <= population:
         infected -= people_will_be_recovered
         vulnerable -= people_will_be_recovered
 
-
-plt.title("Эпидемия")
+plt.subplots(1, 1, figsize=(15, 9))
+plt.title("Эпидемия (Школьная модель)")
 plt.xlabel("Время (Дни)")
 plt.ylabel("Инфицированные")
-plt.subplots(1, 1, figsize=(15, 9))
 plt.plot(y_points, x_points)
 plt.show()
 
