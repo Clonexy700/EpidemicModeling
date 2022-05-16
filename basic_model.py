@@ -4,8 +4,10 @@ import matplotlib.pyplot as plt
 
 x_points = []
 y_points = []
+x_points_recovered = []
+y_points_recovered = []
 recovered = 0
-vulnerable = 5000
+vulnerable = 1000000
 population = recovered + vulnerable
 INFECTIVITY_INDEX = 1
 infected = 1
@@ -17,6 +19,7 @@ while infected <= population:
           f'уязвимых к вирусу {vulnerable}, популяция человечества: {population}')
     x_points.append(infected)
     y_points.append(day)
+    x_points_recovered.append(recovered)
     day += 1
     can_infect = vulnerable
     if recovered == population-1:
@@ -32,10 +35,11 @@ while infected <= population:
         infected -= people_will_be_recovered
         vulnerable -= people_will_be_recovered
 
-plt.subplots(1, 1, figsize=(15, 9))
+f, ax = plt.subplots(1, 1, figsize=(15, 9))
 plt.title("Эпидемия (Школьная модель)")
-plt.xlabel("Время (Дни)")
-plt.ylabel("Инфицированные")
-plt.plot(y_points, x_points)
+ax.plot(y_points, x_points, 'r', linewidth=1, label='Заражённые')
+ax.plot(y_points, x_points_recovered, 'g', linewidth=1, label='Выздоровившие')
+ax.set_xlabel('Время (Дни)')
+ax.legend(borderpad=6)
 plt.show()
 
