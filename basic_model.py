@@ -1,13 +1,16 @@
 import time
 import random
 import matplotlib.pyplot as plt
+import seaborn
+
+seaborn.set()
 
 x_points = []
 y_points = []
 recovered = 0
 vulnerable = 5000
 population = recovered + vulnerable
-infectivity_index = 1
+INFECTIVITY_INDEX = 24
 infected = 1
 day = 0
 
@@ -21,9 +24,9 @@ while infected <= population:
     can_infect = vulnerable
     if recovered == population-1:
         print(f'День: {day}, количество инфицированных: 0, количество переболевших: {population}, количество '
-              f'уязвимых к вирусу 0, популяция человечества: {population}, победа человечества получается')
+              f'уязвимых к вирусу 0, популяция человечества: {population}')
         break
-    infected += infected * infectivity_index
+    infected += infected * INFECTIVITY_INDEX
     if infected > can_infect:
         infected = vulnerable
     if (day != 0) and (day % 3) == 0:
@@ -34,7 +37,7 @@ while infected <= population:
 
 
 plt.title("Эпидемия")
-plt.xlabel("День")
+plt.xlabel("Время (Дни)")
 plt.ylabel("Инфицированные")
 plt.grid()
 plt.plot(y_points, x_points)
